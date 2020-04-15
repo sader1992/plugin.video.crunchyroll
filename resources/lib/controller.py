@@ -369,14 +369,15 @@ def startplayback(args):
     """ plays an episode
     """
     # api request
-    args._subtitle = "arME"
+    default_lang = args._subtitle
+    args._subtitle = args._subtitle2 
     payload = {"media_id": args.episode_id,
                "fields":   "media.duration,media.playhead,media.stream_data"}
     req = api.request(args, "info", payload)
 
     # check for error
     if req["error"]:
-        args._subtitle = "enUS"
+        args._subtitle = default_lang
         payload = {"media_id": args.episode_id,
                "fields":   "media.duration,media.playhead,media.stream_data"}
         req = api.request(args, "info", payload)

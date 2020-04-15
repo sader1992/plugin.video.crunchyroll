@@ -78,6 +78,32 @@ def main(argv):
         args._subtitle = "ruRU"
     else:
         args._subtitle = "enUS"
+	
+    args._subtitle2 = args._addon.getSetting("subtitle_language_2")
+    if args._subtitle2 == "0":
+        args._subtitle2 = "enUS"
+    elif args._subtitle2 == "1":
+        args._subtitle2 = "enGB"
+    elif args._subtitle2 == "2":
+        args._subtitle2 = "esLA"
+    elif args._subtitle2 == "3":
+        args._subtitle2 = "esES"
+    elif args._subtitle2 == "4":
+        args._subtitle2 = "ptBR"
+    elif args._subtitle2 == "5":
+        args._subtitle2 = "ptPT"
+    elif args._subtitle2 == "6":
+        args._subtitle2 = "frFR"
+    elif args._subtitle2 == "7":
+        args._subtitle2 = "deDE"
+    elif args._subtitle2 == "8":
+        args._subtitle2 = "arME"
+    elif args._subtitle2 == "9":
+        args._subtitle2 = "itIT"
+    elif args._subtitle2 == "10":
+        args._subtitle2 = "ruRU"
+    else:
+        args._subtitle2 = "enUS"
 
     if not (username and password):
         # open addon settings

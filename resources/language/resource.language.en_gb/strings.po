@@ -36,6 +36,10 @@ msgctxt "#30020"
 msgid "Subtitle Language"
 msgstr ""
 
+msgctxt "#30100"
+msgid "Preferred Subtitle Language"
+msgstr ""
+
 msgctxt "#30021"
 msgid "English (US)"
 msgstr ""
