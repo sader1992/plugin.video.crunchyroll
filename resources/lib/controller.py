@@ -369,16 +369,22 @@ def startplayback(args):
     """ plays an episode
     """
     # api request
+    args._subtitle = "arME"
     payload = {"media_id": args.episode_id,
                "fields":   "media.duration,media.playhead,media.stream_data"}
     req = api.request(args, "info", payload)
 
     # check for error
     if req["error"]:
-        item = xbmcgui.ListItem(getattr(args, "title", "Title not provided"))
-        xbmcplugin.setResolvedUrl(int(args._argv[1]), False, item)
-        xbmcgui.Dialog().ok(args._addonname, args._addon.getLocalizedString(30064))
-        return False
+        args._subtitle = "enUS"
+        payload = {"media_id": args.episode_id,
+               "fields":   "media.duration,media.playhead,media.stream_data"}
+        req = api.request(args, "info", payload)
+        if req["error"]:
+            item = xbmcgui.ListItem(getattr(args, "title", "Title not provided"))
+            xbmcplugin.setResolvedUrl(int(args._argv[1]), False, item)
+            xbmcgui.Dialog().ok(args._addonname, args._addon.getLocalizedString(30064))
+            return False
 
     # get stream url
     try:
